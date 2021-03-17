@@ -16,7 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from soda_beta import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('sodabeta/', include('soda_beta.urls'))
+    path('sodabeta/', include('soda_beta.urls')),
+    path('', views.MainView.as_view(), name='home'),
 ]

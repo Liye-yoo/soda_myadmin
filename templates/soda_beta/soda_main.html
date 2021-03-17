@@ -1,25 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<table>
-    <thead>
-    <tr>
-         <th>아이디</th>
-        <th>이름</th>
-    </tr>
-    </thead>
-    <tbody>
-    {% for obj in model %}
-    <tr>
-        <td>{{ obj.id }}</td>
-        <td>{{ obj.name }}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-</table>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+    <link rel="stylesheet" href="{% static 'css/soda_beta.css' %}">
+
+    <div class="title">Soda</div>
+    <div class="soda-menus">
+        <div class="soda-menu"><a>Makeup</a></div>
+        <div class="soda-menu">Style</div>
+    </div>
+{% endblock %}
