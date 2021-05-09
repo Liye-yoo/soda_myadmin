@@ -26,7 +26,7 @@ SECRET_KEY = '3mgy#@x3bfg(cig@4n585h_%ezwo$v6u#(i-_9j8asbs_=_cec'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["ec2-15-164-251-217.ap-northeast-2.compute.amazonaws.com", "127.0.0.1"]
 
 
 # Application definition
@@ -140,6 +140,10 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'www_dir', 'static')
+# server에서는 'www_dir'에다가 'static'을 넣겠다. 라고 따로 해줘야 한다.
+#settings.py에 다음과 같이 STATIC_ROOT 설정 항목을 추가한다. STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# static 자체는 그냥 가지고 있는건데 서버는 이것을 쓰지 못하고, 서버가 인식하는 곳을 분리를 해놓는다.
+#python3.7 manage.py collectstatic
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
