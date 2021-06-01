@@ -8,7 +8,7 @@ from soda_beta.models import Information, Makeup
 
 
 class MainView(TemplateView):
-    template_name = 'soda_beta/soda_main.html'
+    template_name = 'soda_beta/helper_main.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data()
@@ -19,6 +19,17 @@ class MainView(TemplateView):
         #context['model'] = obj
         #Information.objects.raw('SELECT "name" from ')
         return context
+
+
+class StyleView(TemplateView):
+    template_name = 'soda_beta/helper_style.html'
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data()
+        return context
+    def get(self, request, app, *args, **kwargs):
+        context = self.get_context_data()
+        context['app'] = app
+        return self.render_to_response(context=context)
 
 class QAHelperView(TemplateView):
     template_name = 'soda_beta/soda_qahelper.html'
